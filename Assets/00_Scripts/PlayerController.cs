@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 3.5f;
     private Animator animator;
     
-    private float gravity = -9.81f;
     private Vector3 velocity;
     
     public int OwnerActorNumber { get; private set; }

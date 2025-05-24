@@ -1,8 +1,4 @@
-using Firebase.Firestore;
-using System.Threading.Tasks;
 using UnityEngine;
-using System.Collections.Generic;
-using Firebase.Extensions;
 public class RANK
 {
     public string nickname;

@@ -1,7 +1,4 @@
-using UnityEngine;
-using System.Collections.Generic;
-using UnityEngine.UI;
-using WebSocketSharp;
+
 public class AuctionUI : BasePopUP
 {
     // public static AuctionUI instance = null;

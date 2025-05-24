@@ -4337,6 +4337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b1b7cf9dc434742806590ba551095c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firebaseKey: {fileID: 11400000, guid: f925b4da856f1d147bf61067e4b46e16, type: 2}
 --- !u!1 &435688865
 GameObject:
   m_ObjectHideFlags: 0

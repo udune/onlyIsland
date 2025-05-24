@@ -323,20 +323,24 @@ using FirebaseApp = Firebase.FirebaseApp;
 
 public class FirebaseManager : MonoBehaviour
 {
+    [SerializeField] private ScriptableObject firebaseKey;
+    
     private DatabaseReference reference;
 
     private void Start()
     {
+        var auth = firebaseKey as FirebaseKey;
+        
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
         {
             if (task.Result.Equals(DependencyStatus.Available))
             {
                 AppOptions options = new AppOptions()
                 {
-                    ApiKey = "AIzaSyAxWEsdrLZNOxHjdgVPA-uT22kFnBkapEI",
-                    AppId = "1:820836349971:web:694080b68d4aac4fd727e6",
-                    ProjectId = "inflearnphoton",
-                    DatabaseUrl = new Uri("https://inflearnphoton-default-rtdb.firebaseio.com/")
+                    ApiKey = auth.apiKey,
+                    AppId = auth.appId,
+                    ProjectId = auth.projectId,
+                    DatabaseUrl = new Uri(auth.databaseUrl)
                 };
                 
                 FirebaseApp app = FirebaseApp.Create(options);
