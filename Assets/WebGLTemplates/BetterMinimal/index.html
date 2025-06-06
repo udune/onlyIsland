@@ -8,12 +8,18 @@
 	<style>
 		html,
 		body {
-			background: {{{ BACKGROUND || '#000' }}};
 			width: 100%;
 			height: 100%;
-			overflow: visible;
-			padding: 0;
 			margin: 0;
+			padding: 0;
+			overflow: hidden; /* ✔️ 스크롤바 제거 */
+			background: #000;
+		}
+
+		#gameContainer {
+			position: fixed;
+			top: 0;
+			left: 0;
 		}
 
 		div#gameContainer {
@@ -73,29 +79,31 @@
 				canvas.style.backgroundSize = '100% 1rem';
 			}
 			function onResize() {
-				var container = canvas.parentElement;
-				var w;
-				var h;
+				const container = canvas.parentElement;
+						let windowWidth = window.innerWidth;
+						let windowHeight = window.innerHeight;
 
-				if (scaleToFit) {
-					w = window.innerWidth;
-					h = window.innerHeight;
+						const targetRatio = {{{ WIDTH }}} / {{{ HEIGHT }}};
+					const windowRatio = windowWidth / windowHeight;
 
-					var r = {{{ HEIGHT }}} / {{{ WIDTH }}};
+					let newWidth, newHeight;
 
-					if (w * r > window.innerHeight) {
-						w = Math.min(w, Math.ceil(h / r));
+					if (windowRatio > targetRatio) {
+						// 창이 더 넓음 → 높이에 맞춤
+						newHeight = windowHeight;
+						newWidth = newHeight * targetRatio;
+					} else {
+						// 창이 더 좁음 → 너비에 맞춤
+						newWidth = windowWidth;
+						newHeight = newWidth / targetRatio;
 					}
-					h = Math.floor(w * r);
-				} else {
-					w = {{{ WIDTH }}};
-					h = {{{ HEIGHT }}};
-				}
 
-				container.style.width = canvas.style.width = w + "px";
-				container.style.height = canvas.style.height = h + "px";
-				container.style.top = Math.floor((window.innerHeight - h) / 2) + "px";
-				container.style.left = Math.floor((window.innerWidth - w) / 2) + "px";
+					canvas.style.width = container.style.width = newWidth + "px";
+					canvas.style.height = container.style.height = newHeight + "px";
+
+					container.style.position = "absolute";
+					container.style.left = (windowWidth - newWidth) / 2 + "px";
+					container.style.top = (windowHeight - newHeight) / 2 + "px";
 			}
 			createUnityInstance(canvas, config, progressHandler).then(function (instance) {
 				canvas = instance.Module.canvas;

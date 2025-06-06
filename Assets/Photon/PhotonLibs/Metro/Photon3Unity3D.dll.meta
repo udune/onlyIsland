@@ -1,8 +1,15 @@
 fileFormatVersion: 2
 guid: 3b5a0a7dce46a13459199d174ad3db3f
+AssetOrigin:
+  serializedVersion: 1
+  productId: 119922
+  packageName: PUN 2 - FREE
+  packageVersion: 2.50
+  assetPath: Assets/Photon/PhotonLibs/Metro/Photon3Unity3D.dll
+  uploadId: 743446
 PluginImporter:
   externalObjects: {}
-  serializedVersion: 2
+  serializedVersion: 3
   iconMap: {}
   executionOrder: {}
   defineConstraints: []
@@ -11,24 +18,45 @@ PluginImporter:
   isExplicitlyReferenced: 0
   validateReferences: 1
   platformData:
-  - first:
-      '': Any
-    second:
+    Android:
       enabled: 1
-      settings: {}
-  - first:
-      '': WP8
-    second:
+      settings:
+        AndroidLibraryDependee: UnityLibrary
+        AndroidSharedLibraryType: Executable
+        CPU: ARMv7
+    Any:
+      enabled: 0
+      settings:
+        Exclude Android: 0
+        Exclude Editor: 0
+        Exclude Linux64: 0
+        Exclude OSXUniversal: 0
+        Exclude WebGL: 1
+        Exclude Win: 0
+        Exclude Win64: 0
+    Editor:
       enabled: 1
       settings:
         CPU: AnyCPU
-        DontProcess: False
-        PlaceholderPath: Assets/Photon/PhotonLibs/Photon3Unity3D.dll
-        SDK: AnySDK
-        ScriptingBackend: DotNet
-  - first:
-      Windows Store Apps: WindowsStoreApps
-    second:
+        DefaultValueInitialized: true
+        OS: AnyOS
+    Linux64:
+      enabled: 1
+      settings:
+        CPU: AnyCPU
+    OSXUniversal:
+      enabled: 1
+      settings:
+        CPU: AnyCPU
+    Win:
+      enabled: 1
+      settings:
+        CPU: AnyCPU
+    Win64:
+      enabled: 1
+      settings:
+        CPU: AnyCPU
+    WindowsStoreApps:
       enabled: 1
       settings:
         CPU: AnyCPU
@@ -39,10 +67,3 @@ PluginImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 119922
-  packageName: PUN 2 - FREE
-  packageVersion: 2.50
-  assetPath: Assets/Photon/PhotonLibs/Metro/Photon3Unity3D.dll
-  uploadId: 743446
